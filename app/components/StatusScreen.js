@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   View,
@@ -22,13 +22,17 @@ class StatusScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusIndicator />
+        <StatusIndicator isUp={this.props.isUp} />
         <Text style={styles.statusText}>
-          Service Up
+          Service {this.props.isUp ? 'Up' : 'Down!'}
         </Text>
       </View>
     );
   }
 }
+
+StatusScreen.propTypes = {
+  isUp: PropTypes.bool.isRequired,
+};
 
 export default StatusScreen;

@@ -20,11 +20,20 @@ const styles = StyleSheet.create({
   },
 });
 
+// Main App Component
 class BeBriefed extends Component {
+  constructor(props) {
+    super(props);
+    // Component initial state
+    this.state = {
+      isUp: false,
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <StatusScreen />
+        <StatusScreen isUp={this.state.isUp} />
       </View>
     );
   }
