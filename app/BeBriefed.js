@@ -27,15 +27,33 @@ class BeBriefed extends Component {
     super(props);
     // Component initial state
     this.state = {
-      isUp: false,
+      selectedService: 'db',
+      services: [
+        { key: 'web', isUp: true },
+        { key: 'db', isUp: false },
+        { key: 'mail', isUp: true },
+      ],
     };
+  }
+
+  switchService = (nextService) => {
+    this.setState({
+      selectedService: nextService,
+    });
+  }
+
+  renderTab(selected, services) {
+    const thisService = services.find(s => s.key === selected);
+    return (
+      <StatusScreen isUp={thisService.isUp} />
+    );
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <StatusScreen isUp={this.state.isUp} />
-        <TabBarContainer />
+        {this.renderTab(this.state.selectedService, this.state.services)}
+        <TabBarContainer onTabChange={this.switchService} />
       </View>
     );
   }
