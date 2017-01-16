@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 
 import StatusScreen from './components/StatusScreen';
+import TabBarContainer from './components/TabBarContainer';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,6 +35,7 @@ class BeBriefed extends Component {
     return (
       <View style={styles.container}>
         <StatusScreen isUp={this.state.isUp} />
+        <TabBarContainer />
       </View>
     );
   }
