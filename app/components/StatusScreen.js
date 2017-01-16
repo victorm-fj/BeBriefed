@@ -14,7 +14,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statusText: {
-    fontSize: 30,
+    fontSize: 40,
+    fontWeight: 'bold',
+    marginTop: 60,
+    textAlign: 'center',
+    color: '#e6e8ef',
+    backgroundColor: 'rgba(0,0,0,0)',
   },
 });
 

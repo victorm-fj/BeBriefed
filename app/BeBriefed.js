@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  View,
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient/index.android';
 
 import StatusScreen from './components/StatusScreen';
 import TabBarContainer from './components/TabBarContainer';
@@ -51,7 +51,7 @@ class BeBriefed extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <LinearGradient colors={['#313d43', '#4a787a']} style={styles.container}>
         {/* render StatusScreen with appropriated props according to selectedService */}
         {this.renderTab(this.state.selectedService, this.state.services)}
 
@@ -61,7 +61,7 @@ class BeBriefed extends Component {
           onTabChange={this.switchService}
           selectedService={this.state.selectedService}
         />
-      </View>
+      </LinearGradient>
     );
   }
 }
