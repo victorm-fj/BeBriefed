@@ -2,32 +2,33 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
+  Text,
 } from 'react-native';
 
-import StatusScreen from './components/StatusScreen';
+import StatusIndicator from './StatusIndicator';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  statusText: {
+    fontSize: 30,
   },
 });
 
-class BeBriefed extends Component {
+class StatusScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusScreen />
+        <StatusIndicator />
+        <Text style={styles.statusText}>
+          Service Up
+        </Text>
       </View>
     );
   }
 }
 
-export default BeBriefed;
+export default StatusScreen;
