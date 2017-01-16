@@ -52,8 +52,15 @@ class BeBriefed extends Component {
   render() {
     return (
       <View style={styles.container}>
+        {/* render StatusScreen with appropriated props according to selectedService */}
         {this.renderTab(this.state.selectedService, this.state.services)}
-        <TabBarContainer onTabChange={this.switchService} />
+
+        {/* Pass onTabChange callback function, and selectedService add switch
+          functionality to TabBarContainer depending on main component state */}
+        <TabBarContainer
+          onTabChange={this.switchService}
+          selectedService={this.state.selectedService}
+        />
       </View>
     );
   }

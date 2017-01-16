@@ -27,8 +27,14 @@ const styles = StyleSheet.create({
 
 const TabBarItem = ({ label, icon, selected }) => (
   <View style={styles.container}>
-    <Icon name={icon} style={styles.icon} />
-    <Text style={styles.label}>{label}</Text>
+    {/* render styles according to boolean selected prop */}
+    <Icon
+      name={icon}
+      style={[styles.icon, selected && styles.selectedLabel]}
+    />
+    <Text style={[styles.label, selected && styles.selectedLabel]}>
+      {label}
+    </Text>
   </View>
 );
 
@@ -36,6 +42,11 @@ TabBarItem.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   selected: PropTypes.bool,
+};
+
+// defaultProps definition for every prop that is not a required prop
+TabBarItem.defaultProps = {
+  selected: false,
 };
 
 export default TabBarItem;
